@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Defend The Server</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <div class="game-container">
+    <header class="header">
+      <div class="title-block">
+        <h1>DEFEND THE SERVER</h1>
+        <p class="subtitle">Monitor. Analyze. Decide.</p>
+      </div>
+      <div class="status-block">
+        <div class="status-item">
+          <span class="label">Server Health</span>
+          <div class="health-bar-outer">
+            <div id="health-bar-inner"></div>
+          </div>
+          <span id="health-text" class="value">100%</span>
+        </div>
+
+        <div class="status-item compact">
+          <span class="label">Score</span>
+          <span id="score" class="value">0</span>
+        </div>
+
+        <div class="status-item compact">
+          <span class="label">High Score</span>
+          <span id="high-score" class="value">0</span>
+        </div>
+
+        <div class="status-item compact">
+          <span class="label">Level</span>
+          <span id="level" class="value">1</span>
+        </div>
+
+        <div class="status-item compact">
+          <span class="label">Uptime</span>
+          <span id="uptime" class="value">00:00</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      <section class="panel request-panel">
+        <div class="panel-header">
+          <span class="panel-title">INCOMING REQUEST</span>
+          <span id="request-tag" class="request-tag">WAITING...</span>
+        </div>
+
+        <div id="request-details" class="request-details">
+          <div class="detail-row">
+            <span class="detail-label">Source IP</span>
+            <span id="req-ip" class="detail-value">-</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Request Type</span>
+            <span id="req-type" class="detail-value">-</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Destination Port</span>
+            <span id="req-port" class="detail-value">-</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Request Rate</span>
+            <span id="req-rate" class="detail-value">-</span>
+          </div>
+        </div>
+
+        <div id="decision-feedback" class="decision-feedback">Analyze traffic and decide.</div>
+
+        <div class="button-row">
+          <button id="allow-btn" class="action-btn allow-btn">ALLOW</button>
+          <button id="block-btn" class="action-btn block-btn">BLOCK</button>
+        </div>
+      </section>
+
+      <section class="panel log-panel">
+        <div class="panel-header">
+          <span class="panel-title">SECURITY EVENT LOG</span>
+        </div>
+        <div id="log-list" class="log-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Game Over Overlay -->
+  <div id="game-over-overlay" class="overlay hidden">
+    <div class="overlay-content">
+      <h2>SERVER COMPROMISED</h2>
+      <p>Your defenses have been breached.</p>
+      <div class="overlay-stats">
+        <div><span class="label">Final Score:</span> <span id="final-score" class="value">0</span></div>
+        <div><span class="label">Highest Score:</span> <span id="final-high-score" class="value">0</span></div>
+        <div><span class="label">Reached Level:</span> <span id="final-level" class="value">1</span></div>
+      </div>
+      <button id="restart-btn" class="action-btn restart-btn">RESTART DEFENSE</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
